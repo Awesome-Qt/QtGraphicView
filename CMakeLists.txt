@@ -67,8 +67,6 @@ if(NOT CMAKE_SKIP_INSTALL_RULES)
   include(cmake/install-rules.cmake)
 endif()
 
-add_subdirectory(test)
-
 # ---- Developer mode ----
 if(NOT QtGraphicView_DEVELOPER_MODE)
   return()

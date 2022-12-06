@@ -12,7 +12,7 @@ FLowStyleCollection& FLowStyleCollection::defaultStyle()
 
 const FlowViewStyle& FLowStyleCollection::flowViewStyle() const
 {
-    return flowViewStyle_ ? *flowViewStyle_ : flowViewStyle(presetStyle_)
+    return flowViewStyle_ ? *flowViewStyle_ : flowViewStyle(presetStyle_);
 }
 
 const NodeStyle& FLowStyleCollection::nodeStyle() const
@@ -23,22 +23,25 @@ const NodeStyle& FLowStyleCollection::nodeStyle() const
 const FlowViewStyle& FLowStyleCollection::flowViewStyle(PresetStyle preset) const
 {
     switch (preset) {
-        case DARK:
+        case DARK: {
             static const auto kDefaultDark = FlowViewStyle();
             return kDefaultDark;
-        case LIGHT:
+        }
+        case LIGHT: {
             static const auto kDefaultLight = FlowViewStyle {"#fffff0", "#f5f5e6", "#ebebdc"};
             return kDefaultLight;
+        }
     }
 }
 
 const NodeStyle& FLowStyleCollection::nodeStyle(PresetStyle preset) const
 {
     switch (preset) {
-        case DARK:
+        case DARK: {
             static const auto kDefaultDark = NodeStyle();
             return kDefaultDark;
-        case LIGHT:
+        }
+        case LIGHT: {
             static const auto kDefaultLight = NodeStyle {"#darkgray",
                                                          "deepskyblue",
                                                          "mintcream",
@@ -50,6 +53,7 @@ const NodeStyle& FLowStyleCollection::nodeStyle(PresetStyle preset) const
                                                          "#646464",
                                                          "white"};
             return kDefaultLight;
+        }
     }
 }
 
