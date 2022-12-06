@@ -63,9 +63,9 @@ target_include_directories(
 target_compile_features(QtGraphicView PUBLIC cxx_std_17)
 
 # ---- Install rules ----
-if(NOT CMAKE_SKIP_INSTALL_RULES)
-  include(cmake/install-rules.cmake)
-endif()
+# if(NOT CMAKE_SKIP_INSTALL_RULES)
+#   include(cmake/install-rules.cmake)
+# endif()
 
 # ---- Developer mode ----
 if(NOT QtGraphicView_DEVELOPER_MODE)
