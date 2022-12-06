@@ -25,7 +25,7 @@
       "hidden": true,
       "inherits": "cmake-pedantic",
       "cacheVariables": {
-        "bpmn-cpp_DEVELOPER_MODE": "ON"
+        "QtGraphicView_DEVELOPER_MODE": "ON"
       }
     },
     {
@@ -48,7 +48,7 @@
       "hidden": true,
       "cacheVariables": {
         "CMAKE_CXX_EXTENSIONS": "OFF",
-        "CMAKE_CXX_STANDARD": "17",
+        "CMAKE_CXX_STANDARD": "14",
         "CMAKE_CXX_STANDARD_REQUIRED": "ON",
         "CMAKE_SKIP_INSTALL_RULES": true
       }
@@ -65,7 +65,7 @@
       "description": "Note that all the flags after /W4 are required for MSVC to conform to the language standard",
       "hidden": true,
       "cacheVariables": {
-        "CMAKE_CXX_FLAGS": "/utf-8 /W4 /permissive- /volatile:iso /Zc:preprocessor /EHsc /Zc:__cplusplus /Zc:externConstexpr /Zc:throwingNew /wd5105"
+        "CMAKE_CXX_FLAGS": " /W4 /permissive- /volatile:iso /Zc:preprocessor /EHsc /Zc:__cplusplus /Zc:externConstexpr /Zc:throwingNew /wd5105"
       }
     },
     {
@@ -96,19 +96,6 @@
         "flags-windows",
         "ci-std"
       ],
-      "generator": "Ninja",
-      "hidden": true
-    },
-    {
-      "name": "ci-win32-mingw",
-      "inherits": [
-        "flags-unix",
-        "ci-std"
-      ],
-      "cacheVariables": {
-        "CMAKE_CXX_COMPILER": "g++",
-        "CMAKE_C_COMPILER": "gcc"
-      },
       "generator": "Ninja",
       "hidden": true
     },
@@ -183,14 +170,6 @@
       "inherits": [
         "ci-build",
         "ci-win64-ninja",
-        "dev-mode"
-      ]
-    },
-    {
-      "name": "ci-windows-mingw32",
-      "inherits": [
-        "ci-build",
-        "ci-win32-mingw",
         "dev-mode"
       ]
     }
