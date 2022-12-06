@@ -27,7 +27,7 @@ const FlowViewStyle& FLowStyleCollection::flowViewStyle(PresetStyle preset) cons
             static const auto kDefaultDark = FlowViewStyle();
             return kDefaultDark;
         case LIGHT:
-            static const auto kDefaultLight = FlowViewStyle();
+            static const auto kDefaultLight = FlowViewStyle {"#fffff0", "#f5f5e6", "#ebebdc"};
             return kDefaultLight;
     }
 }
@@ -39,7 +39,16 @@ const NodeStyle& FLowStyleCollection::nodeStyle(PresetStyle preset) const
             static const auto kDefaultDark = NodeStyle();
             return kDefaultDark;
         case LIGHT:
-            static const auto kDefaultLight = NodeStyle();
+            static const auto kDefaultLight = NodeStyle {"#darkgray",
+                                                         "deepskyblue",
+                                                         "mintcream",
+                                                         "mintcream",
+                                                         "mintcream",
+                                                         "mintcream",
+                                                         "#c8c8c8",
+                                                         "#0a0a0a",
+                                                         "#646464",
+                                                         "white"};
             return kDefaultLight;
     }
 }
