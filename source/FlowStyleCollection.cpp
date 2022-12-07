@@ -43,7 +43,7 @@ const NodeStyle& FLowStyleCollection::nodeStyle(PresetStyle preset) const
         }
         case LIGHT: {
             static const auto kDefaultLight = NodeStyle {"#darkgray",
-                                                         "deepskyblue",
+                                                         "#7955ba",
                                                          "mintcream",
                                                          "mintcream",
                                                          "mintcream",
