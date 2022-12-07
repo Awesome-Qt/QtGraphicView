@@ -28,7 +28,7 @@ const FlowViewStyle& FLowStyleCollection::flowViewStyle(PresetStyle preset) cons
             return kDefaultDark;
         }
         case LIGHT: {
-            static const auto kDefaultLight = FlowViewStyle {"#fffff0", "#f5f5e6", "#ebebdc"};
+            static const auto kDefaultLight = FlowViewStyle {"#ffffff", "#f5f5e6", "#ebebdc"};
             return kDefaultLight;
         }
     }
