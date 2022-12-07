@@ -49,7 +49,7 @@ const NodeStyle& FLowStyleCollection::nodeStyle(PresetStyle preset) const
                                                          "mintcream",
                                                          "mintcream",
                                                          "#c8c8c8",
-                                                         "#0a0a0a",
+                                                         "black",
                                                          "#646464",
                                                          "white"};
             return kDefaultLight;
