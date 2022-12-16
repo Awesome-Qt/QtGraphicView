@@ -32,6 +32,7 @@ const FlowViewStyle& FLowStyleCollection::flowViewStyle(PresetStyle preset) cons
             return kDefaultLight;
         }
     }
+    return {};
 }
 
 const NodeStyle& FLowStyleCollection::nodeStyle(PresetStyle preset) const
@@ -55,6 +56,7 @@ const NodeStyle& FLowStyleCollection::nodeStyle(PresetStyle preset) const
             return kDefaultLight;
         }
     }
+    return {};
 }
 
 void FLowStyleCollection::setDefaultStyle(PresetStyle style)
