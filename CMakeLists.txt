@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.14)
 
-include(cmake/prelude.cmake)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+
+include(prelude)
 
 project(
   QtGraphicView
@@ -12,9 +14,10 @@ project(
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
-include(cmake/project-is-top-level.cmake)
-include(cmake/variables.cmake)
-include(cmake/link_qt.cmake)
+include(project-is-top-level)
+include(variables)
+include(link_qt)
+include(link_json)
 
 # ---- Declare library ----
 add_library(
@@ -23,7 +26,7 @@ add_library(
   source/FlowStyleCollection.cpp
 )
 
-target_link_libraries(QtGraphicView ${QT_LIBRARIES})
+target_link_libraries(QtGraphicView PUBLIC nlohmann_json::nlohmann_json PRIVATE ${QT_LIBRARIES})
 add_library(QtGraphicView::QtGraphicView ALIAS QtGraphicView)
 
 include(GenerateExportHeader)
@@ -64,7 +67,7 @@ target_compile_features(QtGraphicView PUBLIC cxx_std_17)
 
 # ---- Install rules ----
 # if(NOT CMAKE_SKIP_INSTALL_RULES)
-#   include(cmake/install-rules.cmake)
+# include(cmake/install-rules.cmake)
 # endif()
 
 # ---- Developer mode ----
@@ -77,4 +80,4 @@ elseif(NOT PROJECT_IS_TOP_LEVEL)
   )
 endif()
 
-include(cmake/dev-mode.cmake)
+include(dev-mode)

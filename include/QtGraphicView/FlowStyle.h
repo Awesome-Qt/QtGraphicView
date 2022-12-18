@@ -5,8 +5,9 @@
 #include <QBrush>
 #include <string>
 
+#include <nlohmann/json.hpp>
+
 #include "QtGraphicView/QtGraphicView_export.hpp"
-#include "json.hpp"
 
 struct QTGRAPHICVIEW_EXPORT FlowViewStyle
 {

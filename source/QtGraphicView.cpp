@@ -26,7 +26,7 @@ inline auto stringToColor(const std::string& str)
 }
 
 QtGridGraphicView::QtGridGraphicView(QWidget* parent)
-    : QtGridGraphicView(new QGraphicsScene(this), nullptr, parent)
+    : QtGridGraphicView(new QGraphicsScene(nullptr), nullptr, parent)
 {
 }
 
