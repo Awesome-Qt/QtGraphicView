@@ -29,6 +29,8 @@ class QTGRAPHICVIEW_EXPORT QtGridGraphicView : public QGraphicsView
 
     void setStyleCollection(std::shared_ptr<FLowStyleCollection> style);
 
+    void setMenu(QMenu* menu);
+
   protected:
     void contextMenuEvent(QContextMenuEvent* event) override;
 

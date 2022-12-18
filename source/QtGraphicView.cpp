@@ -26,7 +26,7 @@ inline auto stringToColor(const std::string& str)
 }
 
 QtGridGraphicView::QtGridGraphicView(QWidget* parent)
-    : QtGridGraphicView(new QGraphicsScene(this), new QMenu(this), parent)
+    : QtGridGraphicView(new QGraphicsScene(this), nullptr, parent)
 {
 }
 
@@ -35,6 +35,8 @@ QtGridGraphicView::QtGridGraphicView(QGraphicsScene* scene, QMenu* menu, QWidget
     , scene_(scene)
     , menu_(menu)
 {
+    if (!scene_->parent())
+        scene_->setParent(this);
     setDragMode(QGraphicsView::ScrollHandDrag);
     setRenderHint(QPainter::Antialiasing);
     setBackgroundBrush(
@@ -56,9 +58,8 @@ void QtGridGraphicView::contextMenuEvent(QContextMenuEvent* event)
         QGraphicsView::contextMenuEvent(event);
         return;
     }
-    if (!menu_)
-        return;
-    menu_->exec(event->globalPos());
+    if (menu_)
+        menu_->exec(event->globalPos());
 }
 
 void QtGridGraphicView::wheelEvent(QWheelEvent* event)
@@ -210,4 +211,9 @@ void QtGridGraphicView::showEvent(QShowEvent* event)
 QGraphicsScene& QtGridGraphicView::scene() const
 {
     return *scene_;
+}
+
+void QtGridGraphicView::setMenu(QMenu* menu)
+{
+    menu_.reset(menu);
 }
