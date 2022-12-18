@@ -7,6 +7,8 @@
 
 #include <qbrush.h>
 #include <qcolor.h>
+#include <qgraphicsscene.h>
+#include <qmenu.h>
 
 #include <QtCore/QPointF>
 #include <QtCore/QRectF>
@@ -21,6 +23,11 @@
 inline auto stringToColor(const std::string& str)
 {
     return QColor(QString::fromStdString(str));
+}
+
+QtGridGraphicView::QtGridGraphicView(QWidget* parent)
+    : QtGridGraphicView(new QGraphicsScene(this), new QMenu(this), parent)
+{
 }
 
 QtGridGraphicView::QtGridGraphicView(QGraphicsScene* scene, QMenu* menu, QWidget* parent)

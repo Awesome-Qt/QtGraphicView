@@ -16,44 +16,43 @@ struct FlowViewStyle;
 class FLowStyleCollection;
 class QTGRAPHICVIEW_EXPORT QtGridGraphicView : public QGraphicsView
 {
-public:
-  QtGridGraphicView(QGraphicsScene* scene,
-                    QMenu* menu,
-                    QWidget* parent = nullptr);
-  ~QtGridGraphicView() override;
-  QtGridGraphicView(const QtGridGraphicView&) = delete;
-  auto operator=(const QtGridGraphicView&) -> const QtGridGraphicView& = delete;
+  public:
+    QtGridGraphicView(QWidget* parent = nullptr);
+    QtGridGraphicView(QGraphicsScene* scene, QMenu* menu, QWidget* parent = nullptr);
+    ~QtGridGraphicView() override;
+    QtGridGraphicView(const QtGridGraphicView&) = delete;
+    auto operator=(const QtGridGraphicView&) -> const QtGridGraphicView& = delete;
 
-  void scaleUp();
+    void scaleUp();
 
-  void scaleDown();
+    void scaleDown();
 
-  void setStyleCollection(std::shared_ptr<FLowStyleCollection> style);
+    void setStyleCollection(std::shared_ptr<FLowStyleCollection> style);
 
-protected:
-  void contextMenuEvent(QContextMenuEvent* event) override;
+  protected:
+    void contextMenuEvent(QContextMenuEvent* event) override;
 
-  void wheelEvent(QWheelEvent* event) override;
+    void wheelEvent(QWheelEvent* event) override;
 
-  void keyPressEvent(QKeyEvent* event) override;
+    void keyPressEvent(QKeyEvent* event) override;
 
-  void keyReleaseEvent(QKeyEvent* event) override;
+    void keyReleaseEvent(QKeyEvent* event) override;
 
-  void mousePressEvent(QMouseEvent* event) override;
+    void mousePressEvent(QMouseEvent* event) override;
 
-  void mouseMoveEvent(QMouseEvent* event) override;
+    void mouseMoveEvent(QMouseEvent* event) override;
 
-  void drawBackground(QPainter* painter, const QRectF& r) override;
+    void drawBackground(QPainter* painter, const QRectF& r) override;
 
-  void showEvent(QShowEvent* event) override;
+    void showEvent(QShowEvent* event) override;
 
-  [[nodiscard]] auto scene() const -> QGraphicsScene&;
+    [[nodiscard]] auto scene() const -> QGraphicsScene&;
 
-private:
-  QPointF clickPos_;
-  QGraphicsScene* scene_;
-  std::unique_ptr<QMenu> menu_;
-  std::shared_ptr<FLowStyleCollection> styleCollection_ {};
+  private:
+    QPointF clickPos_;
+    QGraphicsScene* scene_;
+    std::unique_ptr<QMenu> menu_;
+    std::shared_ptr<FLowStyleCollection> styleCollection_ {};
 };
 
 #endif  // __QTGRAPHICVIEW_H__
