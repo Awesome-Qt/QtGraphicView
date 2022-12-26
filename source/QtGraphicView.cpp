@@ -35,7 +35,7 @@ QtGridGraphicView::QtGridGraphicView(QGraphicsScene* scene, QMenu* menu, QWidget
     , scene_(scene)
     , menu_(menu)
 {
-    if (!scene_->parent())
+    if (scene_ && !scene_->parent())
         scene_->setParent(this);
     setDragMode(QGraphicsView::ScrollHandDrag);
     setRenderHint(QPainter::Antialiasing);
@@ -149,7 +149,7 @@ void QtGridGraphicView::mousePressEvent(QMouseEvent* event)
 void QtGridGraphicView::mouseMoveEvent(QMouseEvent* event)
 {
     QGraphicsView::mouseMoveEvent(event);
-    if (scene().mouseGrabberItem() == nullptr && event->buttons() == Qt::LeftButton) {
+    if (scene_ && scene_->mouseGrabberItem() == nullptr && event->buttons() == Qt::LeftButton) {
         // Make sure shift is not being pressed
         if ((event->modifiers() & Qt::ShiftModifier) == 0) {
             QPointF difference = clickPos_ - mapToScene(event->pos());
@@ -204,13 +204,12 @@ void QtGridGraphicView::drawBackground(QPainter* painter, const QRectF& r)
 
 void QtGridGraphicView::showEvent(QShowEvent* event)
 {
-    scene().setSceneRect(this->rect());
     QGraphicsView::showEvent(event);
 }
 
-QGraphicsScene& QtGridGraphicView::scene() const
+QGraphicsScene* QtGridGraphicView::scene() const
 {
-    return *scene_;
+    return scene_;
 }
 
 void QtGridGraphicView::setMenu(QMenu* menu)

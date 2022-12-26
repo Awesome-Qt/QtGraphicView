@@ -48,7 +48,7 @@ class QTGRAPHICVIEW_EXPORT QtGridGraphicView : public QGraphicsView
 
     void showEvent(QShowEvent* event) override;
 
-    [[nodiscard]] auto scene() const -> QGraphicsScene&;
+    [[nodiscard]] auto scene() const -> QGraphicsScene*;
 
   private:
     QPointF clickPos_;
