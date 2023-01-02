@@ -37,7 +37,7 @@ QtGridGraphicView::QtGridGraphicView(QGraphicsScene* scene, QMenu* menu, QWidget
 {
     if (scene_ && !scene_->parent())
         scene_->setParent(this);
-    setDragMode(QGraphicsView::ScrollHandDrag);
+    // setDragMode(QGraphicsView::ScrollHandDrag);
     setRenderHint(QPainter::Antialiasing);
     setBackgroundBrush(
         QColor(QString::fromStdString(FLowStyleCollection::defaultStyle().flowViewStyle().BackgroundColor)));
@@ -46,7 +46,6 @@ QtGridGraphicView::QtGridGraphicView(QGraphicsScene* scene, QMenu* menu, QWidget
     setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
     setCacheMode(QGraphicsView::CacheBackground);
     setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
-    // setViewport(new QGLWidget(QGLFormat(QGL::SampleBuffers)));
     QGraphicsView::setScene(scene_);
 }
 
